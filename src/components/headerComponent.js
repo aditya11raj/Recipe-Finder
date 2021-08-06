@@ -41,7 +41,7 @@ height:32px;
 export const SearchInput=styled.input`
  border:none;
  outline:none;
- margine-left: 15px;
+ margin-left: 15px;
  font-size:16px;
  font-weight:bold;
 `;
