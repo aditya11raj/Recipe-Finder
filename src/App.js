@@ -7,8 +7,15 @@ import {
   SearchIcon,
   SearchInput} from './components/headerComponent';
 
+import {
+  RecipeContainer,
+  RecipeListContainer,
+  RecipeName,
+  CoverImage,
+  IngredientsText,
+  SeeMoreText} from './components/recipeComponent';
 
-export const Container =styled.div`
+const Container =styled.div`
 display:flex;
 flex-direction: column;
 `;
@@ -23,6 +30,14 @@ function App() {
           <SearchInput placeholder="Search Recipe"/>
         </SearchComponent>
       </Header>
+      <RecipeListContainer>
+        <RecipeContainer>
+          <CoverImage src="chinese-food.svg"/>
+          <RecipeName>Matar Paneer</RecipeName>
+          <IngredientsText>Ingredients</IngredientsText>
+          <SeeMoreText>See Complete Recipe</SeeMoreText>
+        </RecipeContainer>
+      </RecipeListContainer>
     </Container>
   );
 }
