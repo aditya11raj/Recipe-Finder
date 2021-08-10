@@ -33,7 +33,9 @@ const RecipeComponent =(props) => {
       <CoverImage src={recipeObj.image}/>
       <RecipeName>{recipeObj.label}</RecipeName>
       <IngredientsText>Ingredients</IngredientsText>
-      <SeeMoreText>See Complete Recipe</SeeMoreText>
+      <SeeMoreText onClick={()=>window.open(recipeObj.url)}>
+        See Complete Recipe
+        </SeeMoreText>
     </RecipeContainer>
   )
 }
