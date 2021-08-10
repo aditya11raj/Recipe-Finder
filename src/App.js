@@ -26,14 +26,28 @@ flex-direction: column;
 const APP_ID="ab73337b";
 const APP_KEY="4c02b1dd6a3495555b60763da165417d";
 
+const RecipeComponent =(props) => {
+  return(
+    <RecipeContainer>
+      <CoverImage src={"chinese-food.svg"}/>
+      <RecipeName>Matar Paneer</RecipeName>
+      <IngredientsText>Ingredients</IngredientsText>
+      <SeeMoreText>See Complete Recipe</SeeMoreText>
+    </RecipeContainer>
+  )
+}
+
+
 function App() {
   const [timeoutId,updateTimeOutId]=useState();
+  const [recipeList,updateRecipeList]=useState([]);
 
   const fetchRecipe= async (searchString) =>{
     const response = await Axios.get(
       `https://api.edamam.com/search?q=${searchString}&app_id=${APP_ID}&app_key=${APP_KEY}`
       );
       console.log(response);
+      updateRecipeList(response.data.hits);
 
   };
   const onTextChange=(event) => {
@@ -53,12 +67,10 @@ function App() {
         </SearchComponent>
       </Header>
       <RecipeListContainer>
-        <RecipeContainer>
-          <CoverImage src="chinese-food.svg"/>
-          <RecipeName>Matar Paneer</RecipeName>
-          <IngredientsText>Ingredients</IngredientsText>
-          <SeeMoreText>See Complete Recipe</SeeMoreText>
-        </RecipeContainer>
+        {recipeList.length &&
+         recipeList.map((recipeObj) => (
+           <RecipeComponent recipeObj={recipeObj} />
+         ))}
       </RecipeListContainer>
     </Container>
   );
