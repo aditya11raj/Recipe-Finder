@@ -27,10 +27,11 @@ const APP_ID="ab73337b";
 const APP_KEY="4c02b1dd6a3495555b60763da165417d";
 
 const RecipeComponent =(props) => {
+  const { recipeObj } =props;
   return(
     <RecipeContainer>
-      <CoverImage src={"chinese-food.svg"}/>
-      <RecipeName>Matar Paneer</RecipeName>
+      <CoverImage src={recipeObj.image}/>
+      <RecipeName>{recipeObj.label}</RecipeName>
       <IngredientsText>Ingredients</IngredientsText>
       <SeeMoreText>See Complete Recipe</SeeMoreText>
     </RecipeContainer>
@@ -69,7 +70,7 @@ function App() {
       <RecipeListContainer>
         {recipeList.length &&
          recipeList.map((recipeObj) => (
-           <RecipeComponent recipeObj={recipeObj} />
+           <RecipeComponent recipeObj={recipeObj.recipe} />
          ))}
       </RecipeListContainer>
     </Container>
