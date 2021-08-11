@@ -30,7 +30,7 @@ const SearchComponent=styled.div`
   flex-direction: row;
   background-color:white;
   padding:10px;
-  border-radius:6px;
+  border-radius:50px;
   width:50%;
 `;
 const SearchIcon= styled.img`
@@ -41,7 +41,8 @@ height:32px;
 const SearchInput=styled.input`
  border:none;
  outline:none;
- margin-left: 15px;
+ width:auto;
+ margin-left:15px;
  font-size:16px;
  font-weight:bold;
 `;
