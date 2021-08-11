@@ -19,6 +19,7 @@ box-shadow:0 3px 10px 0 #aaa;
 
 const CoverImage=styled.img`
 height:200px;
+object-fit:cover;
 `;
 
 const RecipeName=styled.span`

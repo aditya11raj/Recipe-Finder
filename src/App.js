@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import {useState} from 'react';
 import Axios from "axios";
 
@@ -15,6 +16,14 @@ import Recipe from './components/recipeComponent';
 
 const APP_ID="ab73337b";
 const APP_KEY="4c02b1dd6a3495555b60763da165417d";
+
+
+const PlaceHolder=styled.img`
+  width:120px;
+  height:120px;
+  margin:auto auto auto auto;
+  opacity:50%;
+`;
 
 const RecipeComponent =(props) => {
   const [show,setShow]= useState(false);
@@ -46,7 +55,7 @@ const RecipeComponent =(props) => {
       </DialogContent>
       <DialogActions>
         <Recipe.IngredientsText onClick={() => window.open(recipeObj.url)}>SeeMore</Recipe.IngredientsText>
-        <Recipe.SeeMoreText onClick={() => setShow("")}>Close</Recipe.SeeMoreText>
+        <Recipe.SeeMoreText onClick={() => setShow(false)}>Close</Recipe.SeeMoreText>
       </DialogActions>
       </Dialog>
     <Recipe.RecipeContainer>
@@ -93,10 +102,10 @@ function App() {
         </Headers.SearchComponent>
       </Headers.Header>
       <Recipe.RecipeListContainer>
-        {recipeList.length &&
+        {recipeList.length?
          recipeList.map((recipeObj) => (
            <RecipeComponent recipeObj={recipeObj.recipe} />
-         ))}
+         )):<PlaceHolder src="chefs.svg" />}
       </Recipe.RecipeListContainer>
     </Headers.Container>
   );
