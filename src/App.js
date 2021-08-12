@@ -35,9 +35,11 @@ const RecipeComponent =(props) => {
       <DialogContent>
         <table>
           <thead>
+            <tr>
             <th>Image</th>
             <th>Ingredients</th>
             <th>Weight</th>
+            </tr>
           </thead>
           <tbody>
             {recipeObj.ingredients.map((ingredientObj)=>(
