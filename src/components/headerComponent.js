@@ -20,8 +20,8 @@ align-items:center;
 `;
 
 const AppIcon=styled.img`
-width:30px;
-height:30px;
+width:30%;
+height:auto;
 margin:15px;
 `;
 
@@ -31,11 +31,11 @@ const SearchComponent=styled.div`
   background-color:white;
   padding:10px;
   border-radius:50px;
-  width:50%;
+  width:auto;
 `;
 const SearchIcon= styled.img`
 width:32px;
-height:32px;
+height:auto;
 `;
 
 const SearchInput=styled.input`
